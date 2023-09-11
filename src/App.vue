@@ -9,6 +9,7 @@
     const newBoard = new Board();
     newBoard.initCells();
     board.value = newBoard;
+    newBoard.addFigures();
   }
 
   onMounted(() => {

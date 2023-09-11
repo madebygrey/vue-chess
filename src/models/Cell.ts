@@ -18,10 +18,10 @@ export class Cell {
     color: Colors,
     figure: Figure | null
   ) {
-    this.board = board;
     this.x = x;
     this.y = y;
     this.color = color;
+    this.board = board;
     this.figure = figure;
     this.available = false;
     this.id = Math.random();

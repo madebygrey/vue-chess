@@ -7,11 +7,14 @@
   }
 
   const props = defineProps<BoardProps>();
+  console.log(props.board);
 </script>
 
 <template>
-  <div class="board" v-for="board in props.board.cells">
-    <TheCell v-for="cell in board" :cell="cell" />
+  <div class="board">
+    <span v-for="cells in props.board.cells">
+      <TheCell v-for="cell in cells" :cell="cell" />
+    </span>
   </div>
 </template>
 
