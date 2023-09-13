@@ -5,6 +5,7 @@
   margin: 0 auto;
   padding: 2rem;
   font-weight: normal;
+  display: flex;
 }
 .app {
   width: 100vw;
@@ -50,4 +51,19 @@
   width: 12px;
   border-radius: 50%;
   background-color: #22c022;
+}
+h3 {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+.lost {
+  height: calc(50vh - 60px);
+  padding: 30px;
+  margin-left: 50px;
+  background-color: lightgray;
+  width: 215px;
+}
+.lost img {
+  width: 20px;
+  height: 20px;
 }

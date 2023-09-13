@@ -3,13 +3,17 @@
   import { Board } from "../models/Board";
   import TheCell from "./TheCell.vue";
   import { ref, watch } from "vue";
+  import type { Player } from "@/models/Player";
 
   interface BoardProps {
     board: Board;
+    currentPlayer: Player | null;
   }
 
   const selectedCell = ref<Cell | null>(null);
   const props = defineProps<BoardProps>();
+
+  const emit = defineEmits(["swapPlayer"]);
 
   function click(cell: Cell) {
     if (
@@ -19,8 +23,11 @@
     ) {
       selectedCell.value.moveFigure(cell);
       selectedCell.value = null;
+      emit("swapPlayer");
     } else {
-      selectedCell.value = cell;
+      if (cell.figure?.color === props.currentPlayer?.color) {
+        selectedCell.value = cell;
+      }
     }
   }
 
@@ -30,6 +37,7 @@
 </script>
 
 <template>
+  <h3>Текущий Игрок {{ currentPlayer?.color }}</h3>
   <div class="board">
     <span v-for="cells in props.board.cells">
       <TheCell
